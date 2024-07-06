@@ -90,9 +90,9 @@ z = Boolean(z);
 
 console.log(x, typeof x);
 console.log(y, typeof y);
-console.log(z, typeof z);*/
+console.log(z, typeof z);
 
-cconst PI = 3.142
+const PI = 3.142
 let radius;
 let circumference;
 
@@ -102,6 +102,10 @@ radius = window.prompt("Enter the radius of a circle");
 radius = Number(radius);
 
 circumference = 2 * pi * radius;
-console.log(circumference);
+console.log(circumference);*/
+
+
+
+
 
 
