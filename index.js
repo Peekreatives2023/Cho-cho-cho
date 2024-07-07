@@ -3,8 +3,8 @@
 
 //windows.alert (`I like Pizza`);
 
-document.getElementById("MyH1").textContent = `Hello`;
-document.getElementById("MyP").textContent = `I like Pizza!`;
+//document.getElementById("MyH1").textContent = `Hello`;
+//document.getElementById("MyP").textContent = `I like Pizza!`;
 
 /*let x;
 x = 100;
@@ -104,7 +104,7 @@ radius = Number(radius);
 circumference = 2 * pi * radius;
 console.log(circumference);*/
 
-const decreaseBtn = document.getElementById("decreaseBtn");
+/*const decreaseBtn = document.getElementById("decreaseBtn");
 const resetBtn = document.getElementById("resetBtn");
 const increaseBtn = document.getElementById("increaseBtn");
 const countLabel = document.getElementById("countLabel");
@@ -124,6 +124,31 @@ increaseBtn.onclick = function(){
     count++;
     countLabel. textContent = count;
 }
+
+console.log(Math.PI);
+console.log(Math.E);
+
+let x = 3;
+let y = 2;
+let z = 1;
+
+let min = Math.min(x, y, z);
+console.log(min);
+
+let randomNum = Math.floor(Math.random() * 6) + 1;
+console.log(randomNum);*/
+
+const myButton = document.getElementById("myButton");
+const myLabel = document.getElementById("myLabel");
+const min = 1;
+const max = 6;
+let randonNum;
+
+myButton.onclick = function(){
+    randonNum = Math.floor(Math.random() * max) + min;
+    myLabel.textContent = randonNum;
+}
+
 
 
 
