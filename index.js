@@ -136,18 +136,36 @@ let min = Math.min(x, y, z);
 console.log(min);
 
 let randomNum = Math.floor(Math.random() * 6) + 1;
-console.log(randomNum);*/
+console.log(randomNum);
 
 const myButton = document.getElementById("myButton");
-const myLabel = document.getElementById("myLabel");
+const Label1 = document.getElementById("Label1");
+const Label2 = document.getElementById("Label2");
+const Label3 = document.getElementById("Label3");
 const min = 1;
 const max = 6;
-let randonNum;
+let randonNum1;
+let randonNum2;
+let randonNum3;
 
 myButton.onclick = function(){
-    randonNum = Math.floor(Math.random() * max) + min;
-    myLabel.textContent = randonNum;
-}
+    randonNum1 = Math.floor(Math.random() * max) + min;
+    randonNum2 = Math.floor(Math.random() * max) + min;
+    randonNum3 = Math.floor(Math.random() * max) + min;
+    Label1.textContent = randonNum1;
+    Label2.textContent = randonNum2;
+    Label3.textContent = randonNum3;
+
+    let time = 14;
+    if(time , 12){
+        console.log("Good morning!");
+    }
+
+    else{
+        console.log("Good afternoon");
+    }*/
+
+    
 
 
 
