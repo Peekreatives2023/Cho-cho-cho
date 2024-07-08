@@ -165,6 +165,46 @@ myButton.onclick = function(){
         console.log("Good afternoon");
     }*/
 
+const mycheckbox = document.getElementById("mycheckbox");
+const VisaBtn = document.getElementById("VisaBtn");
+const MasterCardBtn = document.getElementById("MasterCardBtn");
+const PaypalBtn = document.getElementById("PaypalBtn");
+const subresult = document.getElementById("subresult");
+const payresult = document.getElementById("payresult");
+
+mysubmit.onclick = function(){
+    if(mycheckbox.checked){
+        subresult.textContent = `You are subscribed!`;
+    }
+
+    else{
+        subresult.textContent = `You are NOT subscribed!`;
+    }
+
+    if(VisaBtn.checked){
+        payresult.textContent = `You are paying with Visa`;
+    }
+
+    else if(MasterCardBtn.checked){
+        payresult.textContent = `You are paying with MasterCard`;
+    }
+
+    else if(PaypalBtn.checked){
+        payresult.textContent = `You are paying with Paypal`;
+    }
+
+    else{
+        payresult.textContent = `You must select a payment type!`;
+    }
+
+
+
+
+
+}
+
+
+
     
 
 
