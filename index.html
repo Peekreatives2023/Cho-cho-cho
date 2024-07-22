@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cho Cho Cho</title>
+    <link rel="stylesheet" href="styles.css">
    
 </head>
 <body>
+
+
+    <!--<h1>My name is Oluwapelumi Olufowora Elizabeth</h1>
+    <p> I'm 21 years old and an incoming Web3 developer</p>-->
     <!--<h1 id="MyH1"></h1>
     <p id="MyP"></p>
 
@@ -23,7 +28,7 @@
     <button id="myButton">roll</button>
     <label id="Label1" class="myLabels"></label>
     <label id="Label2" class="myLabels"></label>
-    <label id="Label3" class="myLabels"></label>-->
+    <label id="Label3" class="myLabels"></label>
     
     <input type="checkbox" id="mycheckbox">
     <label for="mycheckbox">subscribe</label><br>
@@ -35,6 +40,33 @@
     <label for="MasterCardBtn">MasterCard</label><br>
     <input type="radio" id="PaypalBtn">
     <label for="PaypalBtn">Paypal</label>
+
+
+    <form>
+        <h1>Temperature Conversion:</h1>
+        <input type="number" id="textbox" value="o"><br>
+
+        <input type="radio" id="toFahrenheit" name="unit">
+        <label for="toFahrenheit">Celsius to Fahrenheit</label><br>
+
+        <input type="radio" id="toCelsius" name="unit">
+        <label for="toCelsius">Fahrenheit to Celsius</label><br>
+
+        <button type="button" onclick="convert()">Submit</button>
+        <p id="result"></p>
+
+    </form>-->
+
+    <div id="container">
+        <h1>Dice Roller</h1>
+        <label># of Dice:</label>
+        <input type="number" id="numOfDice" value="1" min="1">
+        <button onclick="rollDice()">Roll Dice</button>
+        <!--<div>diceResult</div>
+        <div>diceImages</div>-->
+    </div>
+   
+    
 
 
 
