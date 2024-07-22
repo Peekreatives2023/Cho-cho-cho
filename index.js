@@ -163,7 +163,7 @@ myButton.onclick = function(){
 
     else{
         console.log("Good afternoon");
-    }*/
+    }
 
 const mycheckbox = document.getElementById("mycheckbox");
 const VisaBtn = document.getElementById("VisaBtn");
@@ -197,11 +197,158 @@ mysubmit.onclick = function(){
         payresult.textContent = `You must select a payment type!`;
     }
 
+}
+
+let userName = "Oluwapelumi";
+
+console.log(userName.charAt(3));
+console.log(userName.indexOf("p"));
+console.log(userName.length);
+
+userName = userName.toUpperCase();
+console.log(userName);
+
+userName = userName.toLowerCase();
+console.log(userName);
 
 
+Number guessing game
 
+const minNum = 1;
+const maxNum = 100;
+const answer = Math.floor(Math.random() * (maxNum - minNum + 1) + minNum);
+
+let attempts = 0;
+let guess;
+let running = true;
+
+while(running){
+
+    guess = window.prompt(`Guess a number between ${minNum} - ${maxNum}`);
+    guess = Number(guess);
+    
+    if(isNaN(guess)){
+        window.alert("please enter a valid number");
+    }
+
+    else if(guess < minNum || guess > maxNum){
+        window.alert("please enter a valid number");
+    }
+    else{
+        attempts++;
+        if (guess < answer){
+            window.alert("TOO LOW! Try again!");
+        }
+
+        if (guess > answer){
+            window.alert("TOO HIGH! Try again!");
+        }
+        else{
+            window.alert(`CORRECT! The answer was ${answer}. It took you ${attempts} attempts`);
+            running = false;
+        }
+    }
+    
 
 }
+
+
+function happyBirthday(){
+    console.log("Happy birthday to my brother");
+    console.log("Happy birthday to my only brother");
+    console.log("Happy birthday to Emmanuel my brother");
+    console.log("Happy birthday to my Okanlawon");
+}
+
+happyBirthday();
+
+
+function happyBirthday(username, age){
+    console.log("Happy birthday to my brother");
+    console.log("Happy birthday to my only brother");
+    console.log(`Happy birthday to ${username} my brother`);
+    console.log("Happy birthday to my Okanlawon");
+    console.log(`You are ${age} years old today`);
+
+}
+
+happyBirthday("Emmanuel", 15);
+happyBirthday("Glory", 18);
+happyBirthday("Oluwapelumi", 21);
+
+const textbox = document.getElementById("textbox")
+const toFahrenheit = document.getElementById("toFahrenheit")
+const toCelsius = document.getElementById("toCelsius")
+const result = document.getElementById("result")
+let temp;
+
+function convert(){
+    if(toFahrenheit.checked){
+        result.textContent = "You selected to Fahrenheit";
+
+    }
+
+    else if(toCelsius.checked){
+        result.textContent = "You selected to Celsius";
+
+    }
+
+    else{
+        result.textContent = "Select a unit";
+    }
+}
+
+
+const textbox = document.getElementById("textbox")
+const toFahrenheit = document.getElementById("toFahrenheit")
+const toCelsius = document.getElementById("toCelsius")
+const result = document.getElementById("result")
+let temp;
+
+function convert(){
+    if(toFahrenheit.checked){
+        temp = Number(textbox.value);
+        temp = temp * 9 / 5 + 32;
+        result.textContent = temp.toFixed(1) + "°F"
+    }
+
+    else if(toCelsius.checked){
+        temp = Number(textbox.value);
+        temp = (temp - 32) * (5/9);
+        result.textContent = temp.toFixed(1) + "°C"
+    }
+
+    else{
+        result.textContent = "Select a unit";
+    }
+}*/
+
+function rollDice(){
+
+    const numOfDice = document.getElementById("numOfDice").value;
+    const diceResult = document.getElementById("diceResult");
+    const diceImages = document.getElementById("diceImages");
+    const values = [];
+    const Images = [];
+
+    for(let i = 0; i < numOfDice; i++){
+        const value = Math.floor(Math.random() * 6) + 1;
+        values.push(value);
+        Images.push(`img src="diceImages/${value}.png" alt="Dice ${value}">`);
+
+    }
+
+    diceResult.textContent = `dice: ${values.join(`, `)}`;
+    diceImages.innerHTML = Images.join('');
+    
+
+}
+
+
+
+
+
+
 
 
 
