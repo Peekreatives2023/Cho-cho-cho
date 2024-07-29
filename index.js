@@ -1,7 +1,7 @@
 //console.log (`Hello`);
-//console.log (`I like Pizza!`);
+// console.log (`I like Pizza!`);
 
-//windows.alert (`I like Pizza`);
+// windows.alert (`I like Pizza`);
 
 //document.getElementById("MyH1").textContent = `Hello`;
 //document.getElementById("MyP").textContent = `I like Pizza!`;
@@ -321,7 +321,7 @@ function convert(){
     else{
         result.textContent = "Select a unit";
     }
-}*/
+}
 
 function rollDice(){
 
@@ -329,19 +329,60 @@ function rollDice(){
     const diceResult = document.getElementById("diceResult");
     const diceImages = document.getElementById("diceImages");
     const values = [];
-    const Images = [];
+    const images = [];
 
     for(let i = 0; i < numOfDice; i++){
         const value = Math.floor(Math.random() * 6) + 1;
         values.push(value);
-        Images.push(`img src="diceImages/${value}.png" alt="Dice ${value}">`);
+        images.push(`<img src="dice_images/${value}.png">`);
 
     }
 
-    diceResult.textContent = `dice: ${values.join(`, `)}`;
-    diceImages.innerHTML = Images.join('');
+    diceResult.textContent = `dice: ${values.join(', ')}`;
+    diceImages.innerHTML = images.join('');
     
 
+}
+
+hello(wait);
+
+function hello(callback){
+    console.log("Hello!");
+    callback();
+}
+
+function wait(){
+    console.log("wait");
+}
+
+
+function leave(){
+    console.log("leave");
+}
+
+
+function goodbye(){
+    console.log("goodbye");
+}*/
+
+// const btn = document.getElementById("somebuttton");
+// console.log(btn)
+// btn.addEventListener("click", () => {console.log("Hello there!")})
+
+
+
+let numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach(double);
+numbers.forEach(display);
+
+
+function double(element, index, array){
+    array[index] = element * 2;
+}
+
+function display(element){
+    console.log(element);
 }
 
 
