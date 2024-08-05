@@ -222,7 +222,7 @@ let attempts = 0;
 let guess;
 let running = true;
 
-while(running){
+while(running){}
 
     guess = window.prompt(`Guess a number between ${minNum} - ${maxNum}`);
     guess = Number(guess);
@@ -371,30 +371,174 @@ function goodbye(){
 
 
 
-let numbers = [1, 2, 3, 4, 5];
+/*let numbers = [1, 2, 3, 4, 5];
 
+numbers.forEach(square);
+numbers.forEach(triple);
 numbers.forEach(double);
 numbers.forEach(display);
 
 
+function square(element, index, array){
+    array[index] = Math.pow(element, 2);
+}
+
+function triple(element, index, array){
+    array[index] = element * 3;
+}
+
 function double(element, index, array){
     array[index] = element * 2;
+}
+
+
+function display(element){
+    console.log(element);
+}
+
+let fruits = ["apple", "orange", "banana", "coconut"];
+
+fruits.forEach(upperCase);
+fruits.forEach(display);
+
+
+function upperCase(element, index, array){
+    array[index] = element.toupperCase();
 }
 
 function display(element){
     console.log(element);
 }
 
+maps function
+
+const numbers = [1, 2, 3, 4, 5];
+const squares = numbers.map(square);
+
+function square(element){
+    return Math.pow(element, 2)
+}
+
+console.log(squares);
+
+const numbers = [1, 2, 3, 4, 5];
+const cubes = numbers.map(cube);
+
+function cube(element){
+    return Math.pow(element, 3)
+
+}
+console.log(cubes);
+
+const students = ["Spongebob", "patrick", "Squidward", "Sandy"];
+const studentsupper = students.map(upperCase);
+
+console.log(studentsupper);
+
+function upperCase(element){
+    return element.toUpperCase();
+}
 
 
+const students = ["Spongebob", "patrick", "Squidward", "Sandy"];
+const studentslower = students.map(lowerCase);
+
+console.log(studentslower);
+
+function lowerCase(element){
+    return element.toLowerCase();
+}
 
 
+const dates = ["2024-1-10", "2025-2-20", "2026-3-30"];
+const formattedDates = dates.map(formatDates);
+
+console.log(formattedDates);
+
+function formatDates(element){
+    const parts = element.split("-");
+return `${parts[1]}/${parts[2]}/${parts[0]}}`;
+}*/
+
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let evenNums = numbers.filter(isEven);
+
+console.log(evenNums);
+
+function isEven(element){
+    return element % 2 === 0;
+}
+
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let oddNums = numbers.filter(isOdd);
+
+console.log(oddNums);
+
+function isOdd(element){
+    return element % 2 !== 0;
+}
 
 
+const ages = [16, 17, 18, 18, 19, 20, 60];
+const adults = ages.filter(isAdult);
+
+console.log(adults);
+
+function isAdult(element){
+    return element >= 18;
+}
+
+const ages = [16, 17, 18, 18, 19, 20, 60];
+const children = ages.filter(isChildren);
+
+console.log(children);
+
+function isChildren(element){
+    return element < 18;
+}
 
 
+const words = ["apple", "orange", "banana", "coconut", "kiwi", "pomegranate"];
+const shortwords = words.filter(getShortwords);
+
+console.log(shortwords);
+
+function getShortwords(element){
+    return element.length <=6;
+}
     
+const words = ["apple", "orange", "banana", "coconut", "kiwi", "pomegranate"];
+const longwords = words.filter(getLongwords);
 
+console.log(longwords);
 
+function getLongwords(element){
+    return element.length > 6;
+}
 
+const prices = [5, 30, 10, 25, 15, 20];
+const total = prices.reduce(sum);
 
+console.log(`$${total}`);
+
+function sum(accumulator, element){
+    return accumulator + element;
+}
+
+const grades = [75, 50, 90, 80, 65, 95];
+const maximum = grades.reduce(getMax);
+
+console.log(maximum);
+
+function getMax (accumulator, element){
+    return Math.max(accumulator, element);
+}
+
+const grades = [75, 50, 90, 80, 65, 95];
+const minimum = grades.reduce(getMin);
+
+console.log(minimum);
+
+function getMin (accumulator, element){
+    return Math.min(accumulator, element);
+}
