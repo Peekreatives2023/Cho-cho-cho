@@ -458,7 +458,7 @@ console.log(formattedDates);
 function formatDates(element){
     const parts = element.split("-");
 return `${parts[1]}/${parts[2]}/${parts[0]}}`;
-}*/
+}
 
 let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 let evenNums = numbers.filter(isEven);
@@ -542,3 +542,238 @@ console.log(minimum);
 function getMin (accumulator, element){
     return Math.min(accumulator, element);
 }
+
+Function expressions
+
+const numbers = [1, 2, 3, 4, 5, 6];
+const squares = numbers.map(function(element){
+    return Math.pow(element, 2);
+});
+console.log(squares);
+
+const numbers = [1, 2, 3, 4, 5, 6];
+const cubes = numbers.map(function(element){
+    return Math.pow(element, 3);
+});
+console.log(cubes);
+
+const numbers = [1, 2, 3, 4, 5, 6];
+const evenNums = numbers.filter(function(element){
+    return element % 2 === 0;
+});
+console.log(evenNums);
+
+const numbers = [1, 2, 3, 4, 5, 6];
+const oddNums = numbers.filter(function(element){
+    return element % 2 !== 0;
+});
+console.log(oddNums);
+
+const numbers = [1, 2, 3, 4, 5, 6];
+const total = numbers.reduce(function(accumulator, element){
+    return accumulator + element;
+});
+console.log(total);
+
+Arrow functions
+
+const hello = () => console.log("Hello");
+hello();
+
+const hello = (name, age) => {console.log(`Hello ${name}`)
+                              console.log(`You are ${age} years Old`)};
+
+hello ("Elizabeth", 21);
+
+setTimeout(function(){
+    console.log("Hello");
+}, 3000)
+
+setTimeout( () => console.log("Hello"), 3000);
+
+const numbers = [1, 2, 3, 4, 5, 6];
+const squares = numbers.map((element) => Math.pow(element, 2));
+console.log(squares);
+
+const numbers = [1, 2, 3, 4, 5, 6];
+const cubes = numbers.map((element) => Math.pow(element, 3));
+console.log(cubes);
+
+const numbers = [1, 2, 3, 4, 5, 6];
+const evenNums = numbers.filter((element) => element % 2 === 0);
+console.log(evenNums);
+
+const numbers = [1, 2, 3, 4, 5, 6];
+const oddNums = numbers.filter((element) => element % 2 !== 0);
+console.log(oddNums);
+
+const numbers = [1, 2, 3, 4, 5, 6];
+const total = numbers.reduce((accumulator, element) => accumulator + element);
+console.log(total);
+
+Javascript objects.Arrow
+
+const person1 = {
+    firstName: "Spongebob",
+    lastName: "Squarepant",
+    age: 30,
+    isEmployed: "true"
+    sayHello: function(){console.log("Hi! I am Spongebob!")},
+}
+
+person1.sayHello();
+
+console.log(person1.firstName);
+console.log(person1.lastName);
+console.log(person1.age);
+console.log(person1.isEmployed);
+
+const person2 = {
+    firstName: "Patrick",
+    lastName: "Star",
+    age: 42,
+    isEmployed: "false"
+    sayHello: function(){console.log("Hi, i am Spongebob!")},
+}
+person2.sayHello();
+
+console.log(person2.firstName);
+console.log(person2.lastName);
+console.log(person2.age);
+console.log(person2.isEmployed);
+
+const person1 = {
+    name: "Spongebob",
+    favFood: "hamburger",
+    sayHello: function(){console.log(`Hi! I am ${this.name}`)}
+    eat: function(){console.log(`${this.name} is eating ${this.favFood}`)}
+}
+
+person1.eat();
+
+Constructors
+
+function Car(make, model, year, color){
+    this.make = make,
+    this.model = model,
+    this.year = year,
+    this.color = color
+    this.drive = function(){console.log(`You drive the ${this.model}`)}
+}
+const car1 = new Car("Ford", "Mustang", "2024", "Red");
+
+console.log(car1.make);
+console.log(car1.model);
+console.log(car1.year);
+console.log(car1.color);
+
+function Car(make, model, year, color){
+    this.make = make,
+    this.model = model,
+    this.year = year,
+    this.color = color
+}
+const car2 = new Car("Chevrolet", "Camoro", "2025", "blue");
+
+console.log(car2.make);
+console.log(car2.model);
+console.log(car2.year);
+console.log(car2.color);
+
+function Car(make, model, year, color){
+    this.make = make,
+    this.model = model,
+    this.year = year,
+    this.color = color
+    this.drive = function(){console.log(`You drive the ${this.model}`)}
+}
+const car1 = new Car("Ford", "Mustang", "2024", "Red");
+const car2 = new Car("Chevrolet", "Camoro", "2025", "blue");
+const car3 = new Car("Dodge", "Charger", "2026", "Silver");
+
+car1.drive();
+car2.drive();
+
+class in javascript
+
+class Product{
+    constructor(name, price){
+        this.name = name;
+        this.price = price;
+    }
+
+    displayProduct(){
+        console.log(`Product: ${this.name}`)
+        console.log(`Price: $${this.price.toFixed(2)}`)
+    }
+
+    calculateTotal(salesTax){
+        return this.price + (this.price * salesTax);
+    }
+}
+
+const salesTax = 0.05;
+
+const product1 = new Product("Shirt", 19.99);
+const product2 = new Product("Socks", 10.90);
+const product3 = new Product("Trousers", 100);
+
+product3.displayProduct();
+
+const total = product3.calculateTotal(salesTax);
+console.log(`Total price (with tax): $${total.toFixed(2)}`);*/
+
+Static keywords
+
+class MathUtil{
+    static PI = 3.14159;
+
+    static getDiameter(radius){
+        return radius * 2;
+    }
+
+    static getCircumference(radius){
+        return 2 * this.PI * radius;
+    }
+
+    static getArea(radius){
+        return this.PI * radius * radius;
+    }
+}
+
+console.log(MathUtil.PI);
+console.log(MathUtil.getDiameter(10));
+console.log(MathUtil.getCircumference(10));
+console.log(MathUtil.getArea(10));
+
+class User{
+    static userCount = 0;
+
+    constructor(username){
+        this.username = username;
+        User.userCount++;
+    }
+
+    static getUserCount(){
+        console.log(`There are ${User.userCount} users online`);
+    }
+
+    sayHello(){
+        console.log(`Hello, my username is ${this.username}`);
+    }
+}
+
+const user1 = new User("Spongebob");
+const user2 = new User("Patrick");
+const user3 = new User("Sandy");
+
+console.log(user1.username);
+console.log(user2.username);
+console.log(user3.username);
+
+user1.sayHello();
+user2.sayHello();
+user3.sayHello();
+User.getUserCount();
+
+console.log(User.userCount);
