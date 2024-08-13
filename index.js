@@ -721,7 +721,7 @@ const product3 = new Product("Trousers", 100);
 product3.displayProduct();
 
 const total = product3.calculateTotal(salesTax);
-console.log(`Total price (with tax): $${total.toFixed(2)}`);*/
+console.log(`Total price (with tax): $${total.toFixed(2)}`);
 
 Static keywords
 
@@ -777,3 +777,132 @@ user3.sayHello();
 User.getUserCount();
 
 console.log(User.userCount);
+
+Inheritance Here: eat and sleep are methods.
+
+class Animal{
+    alive = true;
+
+    eat(){
+        console.log(`This ${this.name} is eating`);
+    }
+    
+    sleep(){
+        console.log(`This ${this.name} is sleeping`);
+    }
+}
+
+class Rabbit extends Animal{
+    name = rabbit;
+
+    run(){
+        console.log(`This ${this.name} is running`);
+    }
+}
+
+
+class Fish extends Animal{
+    name = fish;
+
+    swim(){
+        console.log(`This ${this.name} is swimming`);
+    }
+}
+
+class Hawk extends Animal{
+    name = hawk;
+
+    fly(){
+        console.log(`This ${this.name} is flying`);
+    }
+}
+
+const rabbit = new Rabbit();
+const fish = new Fish();
+const hawk = new Hawk();
+
+console.log(rabbit.alive);
+rabbit.eat();
+rabbit.sleep();
+rabbit.run();
+
+console.log(fish.alive);
+fish.eat();
+fish.sleep();
+fish.swim();
+
+console.log(hawk.alive);
+hawk.eat();
+hawk.sleep();
+hawk.fly();
+
+
+Super keywords*/
+
+class Animal{
+    constructor(name, age){
+        this.name = name;
+        this.age = age;
+    }
+
+    move(speed){
+        console.log(`The ${this.name} moves at a speed of ${speed}mph`);
+    }
+}
+
+class Rabbit extends Animal{
+    constructor(name, age, runSpeed){
+        super(name, age);
+        this.runSpeed = runSpeed
+    }
+
+    run(){
+        console.log(`This ${this.name} can run`);
+        super.move(this.runSpeed);
+    }
+}
+
+class Fish extends Animal{
+    constructor(name, age, runSpeed){
+        super(name, age);
+        this.swimSpeed = swimSpeed;
+    }
+
+    swim(){
+        console.log(`This ${this.name} can swim`);
+        super.swim(this.swimSpeed);
+    }
+}
+
+class Hawk extends Animal{
+    constructor(name, age, runSpeed){
+        super(name, age);
+        this.flySpeed = flySpeed;
+    }
+
+    fly(){
+        console.log(`This ${this.name} can fly`);
+        super.fly(this.flySpeed);
+    }
+}
+
+const rabbit = new Rabbit("rabbit", 1, 25);
+const fish = new Fish("fish", 2, 12);
+const hawk = new Hawk("hawk", 2, 12);
+
+console.log(rabbit.name);
+console.log(rabbit.age);
+console.log(rabbit.runSpeed);
+
+console.log(fish.name);
+console.log(fish.age);
+console.log(fish.swimSpeed);
+
+console.log(hawk.name);
+console.log(hawk.name);
+console.log(hawk.flySpeed);
+
+rabbit.run();
+fish.swim();
+hawk.fly();
+
