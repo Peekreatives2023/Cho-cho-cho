@@ -9,8 +9,6 @@
 </head>
 <body>
 
-
-
     <!--<h1>My name is Oluwapelumi Olufowora Elizabeth</h1>
     <p> I'm 21 years old and an incoming Web3 developer</p>-->
     <!--<h1 id="MyH1"></h1>
@@ -65,14 +63,178 @@
         <button onclick="rollDice()">Roll Dice</button>
         <div id="diceResult"></div>
         <div id="diceImages"></div>
-    </div>-->
+    </div>
    
     
 
-<button id = "somebuttton" >hello</button>
+    <button onclick ="startTimer()">START</button>
 
-<script src="index.js">
-    // console.log("Hello from the html file")
+    <div id ="clock-container">
+        <div id="clock">00:00:00</div>
+
+    </div>
+
+    <h1 id="myH1">Stopwatch</h1>
+    <div id="container">
+        <div id="display">
+            00:00:00:00
+        </div>
+        <div id="controls">
+            <button id="startBtn" onclick="start()">Start</button>
+            <button id="stopBtn" onclick="stop()">Stop</button>
+            <button id="resetBtn" onclick="reset()">Reset</button>
+
+        </div>
+    </div>
+
+    <div id="calculator">
+        <input id="display" readonly>
+        <div id="keys">
+            <button onclick="appendToDisplay('+')" class="operator-btn">+</button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('-')" class="operator-btn">-</button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('*')" class="operator-btn">*</button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('/')" class="operator-btn">/</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="clearDisplay()" class="operator-btn">C</button>
+
+        </div>
+
+    </div>
+
+    <h1 id="my-heading">Food Are US</h1>
+    
+    <div class="fruits">Apple</div>
+    <div class="fruits">Orange</div>
+    <div class="fruits">Banana</div>
+
+    <h4>Root Vegetables</h4>
+    <ul>
+        <li>Beets</li>
+        <li>Carrots</li>
+        <li>Potatoes</li>
+    </ul>
+    
+    <h4>Non Root vegetables</h4>
+    <ul>
+        <li>Broccoli</li>
+        <li>Celery</li>
+        <li>Onions</li>
+    </ul>
+DOM NAVIGATION
+    
+    <ul id="fruits">
+        <li>apple</li>
+        <li>orange</li>
+        <li>banana</li>
+    </ul>
+
+    <ul id="vegetables">
+        <li>carrots</li>
+        <li>onions</li>
+        <li>potatoes</li>
+    </ul>
+
+    <ul id="desserts">
+        <li>cake</li>
+        <li>pie</li>
+        <li>ice cream</li>
+    </ul>
+STILL DOM NAVIGATION, BUT FOR NEXTELEMENTSIBLING and PREVIOUSELEMENTSIBLINGS
+    <ul id="fruits">
+        <li id="apple">apple</li>
+        <li id="orange">orange</li>
+        <li id="banana">banana</li>
+    </ul>
+
+    <ul id="vegetables">
+        <li id="carrots">carrots</li>
+        <li id="onions">onions</li>
+        <li id="potatoes">potatoes</li>
+    </ul>
+
+    <ul id="desserts">
+        <li id="cake">cake</li>
+        <li id="pie">pie</li>
+        <li id="ice cream">ice cream</li>
+    </ul>-->
+
+    <!--ADD AND CHANGE HTML <ELEMENT
+    
+    <div id="box1" class="box">
+        <p>Box1</p>
+    </div>
+
+    <div id="box2" class="box">
+        <p>Box2</p>
+    </div>
+
+    <div id="box3" class="box">
+        <p>Box3</p>
+    </div>
+
+    <div id="box4" class="box">
+        <p>Box4</p>
+    </div>
+    
+    THIS IS FOR IF THEY DID NOT HAVE AN ID.
+
+    <div class="box">
+        <p>Box1</p>
+    </div>
+
+    <div class="box">
+        <p>Box2</p>
+    </div>
+
+    <div class="box">
+        <p>Box3</p>
+    </div>
+
+    <div class="box">
+        <p>Box4</p>
+    </div>
+    
+Example 2 of adding and changing HTML <ELEMENT
+
+    <ol id="fruits">
+        <li id="apple">apple</li>
+        <li id="orange">orange</li>
+        <li id="banana">banana</li>
+    </ol>
+
+    THIS IS FOR IF THEY DID NOT HAVE AN ID.
+
+    <ol id="fruits">
+        <li>apple</li>
+        <li>orange</li>
+        <li>banana</li>
+    </ol>
+
+EVENT <LISTERNERS-->
+    <div id="myBox">
+        Click Me emoji
+    
+
+    </div>
+    
+
+
+    <!--Then add css styling-->
+    
+
+    <script src="index.js"></script>
+    <!--console.log("Hello from the html file")-->
 </script>
 </body>
 </html>
