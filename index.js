@@ -837,7 +837,7 @@ hawk.sleep();
 hawk.fly();
 
 
-Super keywords*/
+Super keywords
 
 class Animal{
     constructor(name, age){
@@ -906,3 +906,832 @@ rabbit.run();
 fish.swim();
 hawk.fly();
 
+class Rectangle{
+
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+
+    set width(newWidth){
+        if(newWidth > 0){
+            this._width = newWidth
+        }
+        else{
+            console.error("Width must be a positive number");
+        }
+    }
+
+    set height(newHeight){
+        if(newHeight > 0){
+            this._height = newHeight
+        }
+        else{
+            console.error("Height must be a positive number");
+        }
+    }
+
+    get width(){
+        return `${this._width.toFixed(1)}cm`;
+    }
+
+    get height(){
+        return `${this._height.toFixed(1)}cm`;
+    }
+
+    get area(){
+        return `${(this._height * this._width).toFixed(1)}cm^2`;
+    }
+}
+
+const rectangle = new Rectangle(3, 4);
+
+console.log(rectangle.width);
+console.log(rectangle.height);
+console.log(rectangle.area);
+
+Another example
+
+class Person{
+    constructor(firstName, lastName, age){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+
+    set firstName(newFirstName){
+        if(typeof newFirstName === "string" && newFirstName.length > 0 ){
+            this._firstName = newFirstName;
+        }
+
+        else{
+            console.error("First name must be a non empty string");
+        }
+    }
+
+    set lastName(newLastName){
+        if(typeof newLastName === "string" && newLastName.length > 0 ){
+            this._lastName = newlastName;
+        }
+
+        else{
+            console.error("Last name must be a non empty string");
+        }
+    }
+
+    set age(newAge){
+        if(typeof newAge === "number" && newAge >= 0 ){
+            this._age = newAge;
+        }
+
+        else{
+            console.error("Age must be a non negative number");
+        }
+    }
+
+    get firstName(){
+        return this._firstName;
+    }
+
+    get lastName(){
+        return this._lastName;
+    }
+
+    get fullName(){
+        return this._firstName + " " + this._lastName;
+    }
+
+    get age(){
+        return this._age;
+    }
+}
+
+const person = new Person("Spongebob", "Squarepants", 30);
+
+console.log(person.firstName);
+console.log(person.lastName);
+console.log(person.fullName);
+console.log(person.age);
+
+Destructuring
+
+Swapping the values of two variables
+
+let a = 1;
+let b = 2;
+
+[a, b] = [b, a]
+
+console.log(a);
+console.log(b);
+
+Swap 2 elements in an Array
+
+const colors = ["red", "green", "blue", "black", "white"];
+
+[colors[0], colors[4]] = [colors[4], colors[0]];
+
+console.log(colors); ... is called rest parameter
+
+Assign array elements to variables
+
+const colors = ["red", "green", "blue", "black", "white"];
+
+const [firstColor, secondColor, thirdColor, ...extracolors] = colors;
+
+console.log(firstColor);
+console.log(secondColor);
+console.log(thirdColor);
+console.log(extracolors);
+
+Extract values from objects
+Create two persons objects
+
+const person1 = {
+    firstName: "Spongebob",
+    lastName: "Squarepants",
+    age: 30,
+    job: "Fry cook",
+}
+
+const person2 = {
+    firstName: "Patrick",
+    lastName: "Star",
+    age: 34,
+}
+
+using destructuring, we can extract values from this objects
+
+const {firstName, lastName, age, job} = person1
+const {firstName, lastName, age, job ="Unemployed"} = person2
+
+Now, display the variables.
+
+console.log(firstName);
+console.log(lastName);
+console.log(age);
+console.log(job);
+
+console.log(firstName);
+console.log(lastName);
+console.log(age);
+console.log(job);
+
+You can set default values when using destructuring. e.g Set job to be unemployed.
+
+example 5: Destructure in function parameters
+
+function displayPerson({firstName, lastName,age, job ="Unemployed"}){
+    console.log(`name: ${firstName} ${lastName}`);
+    console.log(`age: ${age}`);
+    console.log(`job: ${job}`);
+}
+
+const person1 = {
+    firstName: "Spongebob",
+    lastName: "Squarepants",
+    age: 30,
+    job: "Fry cook",
+}
+
+const person2 = {
+    firstName: "Patrick",
+    lastName: "Star",
+    age: 34,
+}
+
+displayPerson(person1);
+displayPerson(person2);
+
+Nested objects
+
+const person = {
+    fullName: "Spongebob Squarepants",
+    age: 30,
+    isStudent: true,
+    hobbies: ["karate", "jellyfishing", "cooking"],
+    address: {
+        street: "124 Counch St.",
+        city: "Bikini Bottom",
+        country: "Int. Water",
+    }
+}
+
+console.log(person.fullName);
+console.log(person.age);
+console.log(person.isStudent);
+console.log(person.hobbies);
+console.log(person.address.street);
+
+To look through the property of a nested objects
+
+for(const property in person.address){
+    console.log(person.address[property]);
+}
+/*Our person object has a nested address object inside of it
+
+Another example: Creating a class that utilizes nested objects
+
+
+class Person {
+    constructor(name, age, ...address){
+        this.name = name;
+        this.age = age;
+        this.address = new Address(...address);
+
+    }
+}
+class Address {
+    constructor(street, city, country){
+        this.street = street;
+        this.city = city;
+        this.country = country;
+    }
+}
+
+const person1 = new Person("Spongebob", 30, "124 Conch St.",  
+                                            "Bikini Bottom", 
+                                            "Int. waters");
+                                            
+const person2 = new Person("Patrick", 37, "128 Counch St.",  
+                                          "Bikini Bottom", 
+                                          "Int. waters");
+
+const person3 = new Person("Squidward", 45, "126 Counch St.",  
+                                            "Bikini Bottom", 
+                                            "Int. waters");
+
+console.log(person1.name);
+console.log(person1.age);
+console.log(person1.address.street);
+
+console.log(person2.name);
+console.log(person2.age);
+console.log(person2.address.city);
+
+console.log(person3.name);
+console.log(person3.age);
+console.log(person3.address.country);
+
+Array of objects.
+
+const fruits = [{name: "apple", color: "red", calories: 95},
+                {name: "orange", color: "orange", calories: 45},
+                {name: "banana", color: "yellow", calories: 105},
+                {name: "coconut", color: "white", calories: 159},
+                {name: "pineapple", color: "yellow", calories: 37}];
+                
+To access a property within an array of objects
+
+console.log(fruits[0].name);
+
+To add an Object into an array of objects, use the push method.
+
+fruits.push({name: "grapes", color: "purple", calories: 62});
+console.log(fruits);
+
+To remove an Object into an array of objects, use the pop method.
+
+fruits.pop();
+console.log(fruits);
+
+splice is used to remove an element at certain indices indicated.
+
+fruits.splice(1, 2);
+console.log(fruits);
+
+Use the forEach method to look through the element of the array.
+We can use a callback, a function expression or an arrow function here, I used an arrow function.
+
+fruits.forEach(fruits => console.log(fruits));
+fruits.forEach(fruits => console.log(fruits.calories));
+
+Map method is used to run each element through a function and return a new array
+
+const fruitNames = fruits.map(fruit => fruit.name);
+console.log(fruitNames);
+
+const fruitColors = fruits.map(fruit => fruit.color);
+console.log(fruitColors);
+
+const fruitCalories = fruits.map(fruit => fruit.calories);
+console.log(fruitCalories);
+
+filter method will return a new array after using each element and checking the condition
+change the color of pineapple to yellow if it's not yellow before, so we can have two yellow fruits.
+
+const yellowFruits = fruits.filter(fruit => fruit.color === "yellow");
+const lowCalFruits = fruits.filter(fruit => fruit.calories < 100);
+const highCalFruits = fruits.filter(fruit => fruit.calories >= 100);
+
+console.log(yellowFruits);
+console.log(lowCalFruits);
+console.log(highCalFruits);
+
+Reduce method will return a single value, in this case an object.
+using the ternary operator, is this true?
+
+const maxFruits = fruits.reduce( (max, fruit) => 
+                                 fruit.calories > max.calories ?
+                                 fruit: max);
+console.log(maxFruits);
+console.log(maxFruits.calories);
+
+const minFruits = fruits.reduce( (min, fruit) => 
+                                 fruit.calories < min.calories ?
+                                 fruit: min);
+console.log(minFruits);
+console.log(minFruits.calories);
+
+Sort method in JS
+
+let fruits = ["apple", "coconut", "pineapple", "banana", "orange"]
+
+fruits.sort();
+console.log(fruits);
+
+let numbers = [1, 10, 5, 7, 8, 4, 9, 3, 2, 6]
+
+numbers.sort((a, b) => a - b);
+console.log(numbers);
+
+for reverse order
+let numbers = [1, 10, 5, 7, 8, 4, 9, 3, 2, 6]
+
+numbers.sort((a, b) => b - a);
+console.log(numbers);
+
+sorting objects by given example
+
+const people = [{name: "Sponegbob", age: 30, gpa: 3.0}, 
+                {name: "Patrick", age: 37, gpa: 1.5}, 
+                {name: "Squidward", age: 51, gpa: 2.5}, 
+                {name: "Sandy", age: 27, gpa: 4.0}]
+
+sorting the array of objects by age property
+people.sort((a, b) => a.age - b.age);
+console.log(people);
+
+for reverse order
+people.sort((a, b) => b.age - a.age);
+console.log(people);
+
+sorting the array of objects by gpa property
+people.sort((a, b) => a.gpa - b.gpa);
+console.log(people);
+
+sorting the array of objects by name property
+
+people.sort((a, b) => a.name.localeCompare(b.name));
+console.log(people);
+
+for reverse order
+people.sort((a, b) => b.name.localeCompare(a.name));
+console.log(people);
+
+shuffling in an Array
+
+const cards = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
+
+shuffle(cards);
+
+console.log(cards);
+
+function shuffle(array){
+    for(let i = array.length - 1; i > 0; i--){
+        const random = Math.floor(Math.random() * (i + 1));
+
+        [array[i], array[random]] = [array[random], array[i]];
+    }
+}
+
+Date object in js
+
+const date = new Date();
+console.log(date);
+
+To create a custom date ...
+use this format:
+
+const date = new Date(2024, 0, 1, 2, 3, 4, 5 );
+console.log(date);
+
+const date = new Date("2024-01-02T12:00:00Z");
+console.log(date);
+
+const date = new Date(1700000000000);
+console.log(date);
+
+To extract individual value from the date object
+
+const date = new Date();
+
+const year = date.getFullYear();
+const month = date.getMonth();
+const day = date.getDay();
+const hour = date.getHours();
+const minutes = date.getMinutes();
+const seconds = date.getSeconds();
+const milliseconds = date.getMilliseconds();
+const dayOfWeek = date.getDay();
+
+console.log(year);
+console.log(month);
+console.log(day);
+console.log(hour);
+console.log(minutes);
+console.log(seconds);
+console.log(milliseconds);
+console.log(dayOfWeek);
+
+const date = new Date();
+
+date.setFullYear(2025);
+date.setMonth(0);
+date.setDate(1);
+date.setHours(2);
+date.setMinutes(3);
+date.setSeconds(4);
+
+console.log(date);
+
+You could also compare your dates as well
+
+const date1 = new Date("2023-12-31");
+const date2 = new Date("2024-01-01");
+
+if(date2 > date1){
+    console.log("HAPPY NEW YEAR!")
+}
+
+Closures in js
+
+function outer(){
+    let message = "Hello";
+    
+    function inner(){
+        console.log(message);
+
+    }
+    inner();
+
+}
+outer();
+
+A closure can maintain the state of a variable, create a counter Program
+
+function sayHello(){
+    window.alert("Hello");
+}
+
+setTimeout(sayHello, 3000);
+
+We could use an anonymous function instead of a call back
+
+setTimeout(function(){window.alert("Hello")}, 3000);
+
+We can also use an arrow function
+
+setTimeout(() => window.alert("Hello", 3000));
+
+We can also us ethe clearTimeout(timeoutId) to cancel a timeout before it triggers.
+
+const timeoutId = setTimeout(() => window.alert("Hello", 3000));
+clearTimeout(timeoutId);
+
+The html code is in the html file
+function startTimer(){
+    setTimeout(() => window.alert("Hello"), 9000);
+}
+
+Digital clock program
+
+function updateClock(){
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, 0);
+    const minutes = now.getMinutes().toString().padStart(2, 0);
+    const seconds = now.getSeconds().toString().padStart(2, 0);
+    const timeString = `${hours}:${minutes}:${seconds}`;
+    document.getElementById("clock").textContent = timeString;
+
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+To get the clock to update every seconds, do the set interval
+
+Stopwatch program
+
+const display = document.getElementById("display");
+let timer = null;
+let startTime = 0;
+let elapsedTime = 0;
+let isRunning = false;
+
+function start(){
+    if(!isRunning){
+        startTime = Date.now() - elapsedTime;
+        timer = setInterval(update, 10);
+        isRunning = true;
+    }
+
+}
+
+function stop(){
+    if(isRunning){
+        clearInterval(timer);
+        elapsedTime = Date.now() - startTime;
+        isRunning = false;
+
+    }
+    
+}
+
+function reset(){
+    clearInterval(timer);
+    startTime = 0;
+    elapsedTime = 0;
+    isRunning = false;
+    display.textContent = "00:00:00:00";
+    
+}
+
+function update(){
+    const currentTime = Date.now();
+    elapsedTime = currentTime - startTime;
+
+    let hours = Math.floor(elapsedTime / (1000 * 60 * 60));
+    let minutes = Math.floor(elapsedTime / (1000 * 60) % 60);
+    let seconds = Math.floor(elapsedTime / 1000 % 60);
+    let milliseconds = Math.floor(elapsedTime % 1000/10);
+
+    hours = String(hours).padStart(2, "0");
+    minutes = String(minutes).padStart(2, "0");
+    seconds = String(seconds).padStart(2, "0");
+    milliseconds = String(milliseconds).padStart(2, "0");
+
+    display.textContent = `${hours}:${minutes}:${seconds}:${milliseconds}`;
+}
+
+ES6 module: This is an external file that contains reusable codes that can be imported into other Javascript files. They can contain variables, classes, functions and more.
+Create a new file, named Mathutil.js, go to the script tag in html and include "module" them go to the new file created to create reusable codes.
+Create a const PI function to get circumference, area and volume. Then prefic each variables with export keywords so it can be exported
+Then continue from here
+
+import {PI, getCircumference, getArea, getVolume} from './Mathutil.js';
+
+console.log(PI);
+const circumference = getCircumference(10);
+const area = getArea(10);
+const volume = getVolume(10);
+
+console.log(`${circumference.toFixed(2)}cm`);
+console.log(`${area.toFixed(2)}cm^2`);
+console.log(`${volume.toFixed(2)}cm^3`);
+
+Synchronous code: They are codes that executes line by line consecutively in a sequential manner. They wait for an opeartion to complete.
+Asynchronous code: Allows multiple operation to be perc=formed concurrently without waiting. Dosen't block the execution flow and allows the program to continue. It is found in input output operations, (I/O operations)
+Network requests, fetching data. Handled with callbacks, promises, Async/Await.
+
+E.g
+
+setTimeout(() => console.log("Task 1"), 6000);
+
+console.log("Task 2");
+console.log("Task 3");
+console.log("Task 4");
+
+Error object in JS: An error is an object that is created to represent a project taht occurs. Errors occurs often with accepting user input or establishing a connection
+
+Calculator program
+const display = document.getElementById("display");
+
+function appendToDisplay(input){
+    display.value += input;
+}
+
+function clearDisplay(){
+    display.value = "";
+}
+
+function calculate(){
+    try{
+        display.value = eval(display.value);
+
+    }
+    catch(error){
+        display.value = "Error";
+    }
+}
+    ELEMENT SELECTORS.
+
+Get Element By ID
+const myHeading = document.getElementById("my-heading");
+myHeading.style.backgroundColor = "yellow";
+myHeading.style.textAlign = "center";
+
+console.log(myHeading);
+
+Get Element By ClassName
+const fruits = document.getElementsByClassName("fruits");
+console.log(fruits);
+
+To style each fruits, do this with each of the fruit index.
+const fruits = document.getElementsByClassName("fruits");
+fruits[2].style.backgroundColor = "yellow";
+
+const fruits = document.getElementsByClassName("fruits");
+for(let fruit of fruits){
+    fruit.style.backgroundColor = "blue";
+}
+const fruits = document.getElementsByClassName("fruits");
+
+Array.from(fruits).forEach(fruit => {
+    fruit.style.backgroundColor = "red";
+});
+
+Get Element by TagName
+const h4Elements = document.getElementsByTagName("h4");
+console.log(h4Elements);
+
+h4Elements[0].style.backgroundColor = "green";
+
+const h4Elements = document.getElementsByTagName("h4");
+console.log(h4Elements);
+
+h4Elements[1].style.backgroundColor = "orange";
+
+const h4Elements = document.getElementsByTagName("h4");
+for(let h4Element of h4Elements){
+    h4Element.style.backgroundColor = "blue";
+}
+
+const liElements = document.getElementsByTagName("li");
+for(let liElement of liElements){
+    liElement.style.backgroundColor = "pink";
+}
+
+const h4Elements = document.getElementsByTagName("h4");
+Array.from(h4Elements).forEach(h4Element => {
+    h4Element.style.backgroundColor = "red";
+});
+
+const liElements = document.getElementsByTagName("li");
+Array.from(liElements).forEach(liElement => {
+    liElement.style.backgroundColor = "blue";
+});
+
+Query selector: This will return the first matching element or null, If you're selecting a class, you have to use a dot in front, but if it's a tag name, you do not need to.
+
+
+const element = document.querySelector(".fruits");
+element.style.backgroundColor = "yellow";
+
+const element = document.querySelector("h4");
+element.style.backgroundColor = "red";
+
+QueryselectorAll()
+
+const fruits = document.querySelectorAll(".fruits");
+fruits[1].style.backgroundColor = "pink";
+
+const foods = document.querySelectorAll("li");
+foods[4].style.backgroundColor = "pink";
+
+const foods = document.querySelectorAll("li");
+console.log(foods);
+
+const foods = document.querySelectorAll("li");
+foods.forEach(food => {
+    food.style.backgroundColor = "yellow";
+})
+
+DOM Navigation: This is the process of navigating through the structure of an HTML doc using Js.
+
+First Element Child
+
+const element = document.getElementById("vegetables");
+const firstChild = element.firstElementChild;
+firstChild.style.backgroundColor = "red";
+
+OR use queryselectorAll(), this will highlight all of the first children of the unordered List.
+
+const ulElements = document.querySelectorAll("ul");
+ulElements.forEach(ulElement => {
+    const firstChild = ulElement.firstElementChild;
+    firstChild.style.backgroundColor = "pink";
+})
+
+LAST ELEMENT CHILD.
+const element = document.getElementById("desserts");
+const lastChild = element.lastElementChild;
+lastChild.style.backgroundColor = "red";
+
+You can also use queryselectorall() for this.
+
+const ulElements = document.querySelectorAll("ul");
+ulElements.forEach(ulElement => {
+    const lastChild = ulElement.lastElementChild;
+    lastChild.style.backgroundColor = "pink";
+})
+
+NEXT ELEMENT SIBLINGS
+const element = document.getElementById("onions");
+const nextSibling = element.nextElementSibling;
+nextSibling.style.backgroundColor = "brown";
+
+If i select the id of fruits, it will highlight the unordered list of fruits, same as vegetables and desserts
+const element = document.getElementById("vegetables");
+const nextSibling = element.nextElementSibling;
+nextSibling.style.backgroundColor = "brown";
+
+PREVIOUS ELEMENT SIBLINGS
+const element = document.getElementById("orange");
+const previousSibling = element.previousElementSibling;
+previousSibling.style.backgroundColor = "brown";
+
+const element = document.getElementById("vegetables");
+const previousSibling = element.previousElementSibling;
+previousSibling.style.backgroundColor = "brown";
+
+PARENT ELEMENT: WHATEVER ELEMENT WE Select, WE GET THE PARENT.
+const element = document.getElementById("carrots");
+const parent = element.parentElement;
+parent.style.backgroundColor = "brown";
+
+CHILDREN PROPERTY
+const element = document.getElementById("vegetables");
+const children = element.children;
+
+This will highlight all the children in the selected Id
+Array.from(children).forEach(child => {
+    child.style.backgroundColor = "blue";
+});
+
+console.log(children);
+
+YOU CAN ALSO ACCESS THIS CHILDREN BY INDEX Number.
+
+const element = document.getElementById("vegetables");
+const children = element.children;
+
+children[1].style.backgroundColor = "pink";
+
+ADD AND CHANGE HTML ELEMENTS USING JS, IT INVOLVES THREE STEPS
+1. CREATE THE ELEMENT
+const newH1 = document.createElement("h1");
+
+2. ADD ATTRIBUTES/PROPERTY
+newH1.textContent = "I like pizza!";
+newH1.style.color = "tomato";
+newH1.style.textAlign = "center";
+
+3. APPEND ELEMENT TO DOM
+document.body.append(newH1);
+/*document.body.prepend(newH1);
+document.getElementById("box1").append(newH1);
+document.getElementById("box1").prepend(newH1);
+
+TO PUT THE H1 ELEMENT BETWEEN BOX1 AND BOX2
+const box2 = document.getElementById("box2");
+document.body.insertBefore(newH1, box2);
+
+What if they have no Id, we will use queryselectorall to select everything that has the box class.
+const boxes = document.querySelectorAll(".box");
+document.body.insertBefore(newH1, boxes[0]);  This will insert the "I like pizza before the firstbox"
+
+4. Remove the html Element.
+document.body.removeChild("newH1");
+
+Example 2: ADD AND CHANGE HTML ELEMENTS USING JS, IT INVOLVES THREE STEPS
+1. CREATE THE ELEMENT
+const newListItem = document.createElement("li");
+
+2. Add attributes/properties.
+newListItem.textContent = "coconut";
+newListItem.id = "coconut";
+newListItem.style.fontWeight = "bold";
+newListItem.style.backgroundColor = "lightgreen";
+
+
+/*3. Append element to Dom
+document.body.append(newListItem);
+document.body.prepend(newListItem);
+document.getElementById("fruits").append(newListItem);
+document.getElementById("fruits").prepend(newListItem);
+
+To put the newlistitems (coconut) before orange
+const orange = document.getElementById("orange");
+document.getElementById("fruits").insertBefore(newListItem, orange);
+
+To insert the coconut before the banana
+const banana = document.getElementById("banana");
+document.getElementById("fruits").insertBefore(newListItem, banana);
+
+To insert the coconut before the banana
+const apple = document.getElementById("apple");
+document.getElementById("fruits").insertBefore(newListItem, apple);
+
+What if they have no Id, we will use queryselectorall to select
+const listItems = document.querySelectorAll("#fruits li");
+document.getElementById("fruits").insertBefore(newListItem, listItems[0]);
