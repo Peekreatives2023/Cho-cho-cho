@@ -1303,7 +1303,7 @@ function shuffle(array){
 
         [array[i], array[random]] = [array[random], array[i]];
     }
-}
+}*/
 
 Date object in js
 
@@ -1735,3 +1735,264 @@ document.getElementById("fruits").insertBefore(newListItem, apple);
 What if they have no Id, we will use queryselectorall to select
 const listItems = document.querySelectorAll("#fruits li");
 document.getElementById("fruits").insertBefore(newListItem, listItems[0]);
+
+EVENT LISTERNERS
+const myBox = document.getElementById("myBox");
+
+function changeColor(event){
+    event.target.style.backgroundColor = "tomato";
+    event.target.textContent = "OUCH!";
+}
+myBox.addEventListener("click", changeColor);
+
+
+Another way you can do it, and this example is also for mouseover
+const myBox = document.getElementById("myBox");
+myBox.addEventListener("mouseover", event =>{
+    event.target.style.backgroundColor = "yellow";
+    event.target.textContent = "Don't do it!";
+});
+
+myBox.addEventListener("mouseout", event =>{
+    event.target.style.backgroundColor = "lightgreen";
+    event.target.textContent = "CLICK ME";
+});
+
+Event listerners: Keydown and Keyup. I didn't complete it
+
+HOW TO HIDE AND SHOW HTML ELEMENTS
+const myButton = document.getElementById("myButton");
+const myImg = document.getElementById("myImg");
+
+myButton.addEventListener("click", event =>{
+
+    if( myImg.style.display === "none"){
+        myImg.style.display = "block";
+        myButton.textContent = "Hide";
+    }
+
+    else{
+        myButton.textContent = "Show";
+     }
+    
+});
+
+NODELIST
+
+let buttons = document.querySelectorAll(".myButtons");
+console.log(buttons);
+
+Add html/css proerties
+buttons.forEach(button =>{
+    button.style.backgroundColor = "green";
+    button.textContent += "☺";
+})
+ADDING click EVENT LISTERNERS
+let buttons = document.querySelectorAll(".myButtons");
+
+buttons.forEach(button =>{
+    button.addEventListener("click", event => {
+        event.target.style.backgroundColor = "tomato";
+    });
+
+});
+
+MOUSEOVER AND MOUSEOUT EVENT LISTERNER
+let buttons = document.querySelectorAll(".myButtons");
+
+buttons.forEach(button =>{
+    button.addEventListener("mouseover", event => {
+        event.target.style.backgroundColor = "tomato";
+    });
+
+});
+
+let buttons = document.querySelectorAll(".myButtons");
+
+buttons.forEach(button =>{
+    button.addEventListener("mouseout", event => {
+        event.target.style.backgroundColor = "tomato";
+    });
+
+});
+
+ADDING AN ELEMENT TO A NODELIST
+
+let buttons = document.querySelectorAll(".myButtons");
+
+const newButton = document.createElement("button");
+newButton.textContent = "Button 5";
+newButton.classList = "myButtons";
+
+Step3
+document.body.appendChild(newButton);
+
+REMOVE AN ELEMENT FROM A NODELIST
+let buttons = document.querySelectorAll(".myButtons");
+buttons.forEach(button =>{
+    button.addEventListener("click", event => {
+        event.target.remove();
+    });
+
+});
+
+CLASS LISTS*/
+
+const myButton = document.getElementById("myButton");
+//To add a class to an element//
+myButton.classList.add("enabled");
+//To remove a class to an element//
+myButton.classList.remove("enabled");
+
+FOR HOVER,add
+const myButton = document.getElementById("myButton");
+myButton.addEventListener("mouseover", event =>{
+    event.target.classList.add("hover");
+});
+
+//To remove the hover class//
+//const myButton = document.getElementById("myButton");//
+myButton.addEventListener("mouseout", event =>{
+    event.target.classList.remove("hover");
+});
+
+FOR TOGGLE
+const myButton = document.getElementById("myButton");
+myButton.addEventListener("mouseover", event =>{
+    event.target.classList.toggle("hover");
+});
+
+//To remove the hover class//
+//const myButton = document.getElementById("myButton");//
+myButton.addEventListener("mouseout", event =>{
+    event.target.classList.toggle("hover");
+});
+
+REPLACE(oldClass, newClass)
+const myButton = document.getElementById("myButton");
+
+myButton.classList.add("enabled");
+myButton.addEventListener("click", event =>{
+    event.target.classList.replace("enabled", "disabled");
+});
+
+CONTAINS METHOD: It could return true or false
+const myButton = document.getElementById("myButton");
+
+myButton.classList.add("enabled");
+myButton.addEventListener("click", event =>{
+    if(event.target.classList.contains("disabled")){
+        event.target.textContent += "😎";
+    }
+    else{
+        event.target.classList.replace("enabled", "disabled");
+    }
+    
+});
+const myH1 = document.getElementById("myH1");
+
+myH1.classList.add("enabled");
+myH1.addEventListener("click", event =>{
+    if(event.target.classList.contains("disabled")){
+        event.target.textContent += "😎";
+    }
+    else{
+        event.target.classList.replace("enabled", "disabled");
+    }
+    
+});
+
+Create a node list
+
+let buttons = document.querySelectorAll(".myButtons");
+buttons.forEach(button =>{
+    button.classList.add("enabled");
+});
+
+buttons.forEach(button =>{
+    button.addEventListener("mouseover", event => {
+        event.target.classList.toggle("hover");
+
+    });
+});
+
+buttons.forEach(button =>{
+    button.addEventListener("mouseout", event => {
+        event.target.classList.toggle("hover");
+
+    });
+});
+
+buttons.forEach(button =>{
+    button.addEventListener("click", event => {
+
+        if(event.target.classList.contains("disabled")){
+            event.target.textContent += "😊"
+        }
+        else{
+            event.target.classList.replace("enabled", "disabled");
+        }
+        
+
+    });
+});
+
+ROCK PAPER SCISSORS GAME
+
+const choices = ["rock", "paper", "scissors"];
+const playerDisplay = document.getElementById("playerDisplay");
+const computerDisplay = document.getElementById("computerDisplay");
+const resultDisplay = document.getElementById("resultDisplay");
+const playerScoreDisplay = document.getElementById("playerScoreDisplay");
+const computerScoreDisplay = document.getElementById("computerScoreDisplay");
+let playerScore = 0;
+let computerScore = 0;
+
+function playGame(playerChoice){
+    const computerChoice = choices[Math.floor(Math.random() * 3)];
+    let result = "";
+
+    if(playerChoice === computerChoice){
+        result = "IT'S A TIE!"
+    }
+
+    else{
+        switch(playerChoice){
+            case "rock":
+                result = (computerChoice === "scissors") ? "YOU WIN!" : "YOU LOSE!";
+                break;
+
+            case "paper":
+                  result = (computerChoice === "rock") ? "YOU WIN!" : "YOU LOSE!";
+                  break;
+
+            case "scissors":
+                result = (computerChoice === "paper") ? "YOU WIN!" : "YOU LOSE!";
+                break;
+
+        }
+    }
+
+    playerDisplay.textContent = `Player: ${playerChoice}`;
+    computerDisplay.textContent = `Computer: ${computerChoice}`;
+    resultDisplay.textContent = result;
+
+    resultDisplay.classList.remove("greenText", "redText");
+
+    switch(result){
+        case "YOU WIN!":
+           resultDisplay.classList.add("greenText");
+           playerScore++;
+           playerScoreDisplay.textContent = playerScore;
+           break;
+           
+
+        case "YOU LOSE!":
+            resultDisplay.classList.add("redText");
+            computerScore++;
+            computerScoreDisplay.textContent = computerScore;
+           break;
+    }
+
+
+}
